@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- App name -->
+    <title>TODO APP</title>
+
+    <!-- favicon icon  -->
+    <link rel="icon" href="https://raw.githubusercontent.com/fabiospampinato/vscode-todo-plus/master/resources/logo/logo.png" type="image/x-icon" >
+    
+    <!-- CSS stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+
+<body >
+
+    <!-- background image -->
+    <div id="background"></div>
+
+    <!-- heading for app -->
+    <h1>TODO APP</h1>
+
+    <% if(tasks.length>0) { %>
+        <h2>(<%= tasks.length%> Pending Tasks)</h2>
+    <% } %>
+    
+    <!-- Main box -->
+    <div class="box" >
+        
+        <!-- form to add, delete Task -->
+        <form class="addTodo" method="POST">
+
+            <!-- Description input  -->
+            <div class="row">
+                <div class="col1 grayBack">
+                    <label for="Description">Description*</label>
+                    <input type="text" id="Description" name="description" placeholder="What do you need to do?">
+                </div>
+
+            </div>
+
+            
+            <div class="row">
+
+                <!-- Category using select bar  -->
+                <div class="col2 grayBack">
+                    <label for="Category">Category*</label>
+                    <select name="category">
+                        <option selected disabled>Choose a Category</option>
+                        <option value="personal">Personal</option>
+                        <option value="work">Work</option>
+                        <option value="school">School</option>
+                        <option value="cleaning">Cleaning</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Due date using input type date  -->
+                <div class="col2 grayBack">
+                    <label for="dueDate">Due Date*</label>
+                    <input type="date" name="dueDate">
+                </div>
+            </div>
+
+
+            <!-- Buttons -->
+            <div class="row">
+
+                <!-- add button -->
+                <button type="submit" formaction="/tasks/addTask" class="col2 black">
+                    <i class="fas fa-plus"></i> 
+                    <span>ADD</span>
+                TASK</button>
+
+                <!-- delete button  -->
+                <button type="submit" formaction="/tasks/deleteTask" class="col2 red">
+                    <i class="fas fa-trash"></i>
+                    <span>DELETE TASKS</span>
+                </button>
+            </div>
+
+
+            <!-- unorder list to list all tasks  -->
+            <ul>
+                <% for(let i=0;i<tasks.length;i++) { %>
+                <li class="todo">
+
+                    <label>
+                        <input class="check" type="checkbox" name="id" value="<%= tasks[i]._id %>" >
+                        <span></span>
+                    </label>
+
+                    <span class="description">
+                        <%= tasks[i].description %>
+                    </span>
+
+                    <button formaction="/tasks/editTask" class="edit" name="id" value="<%= tasks[i]._id %>">
+                            <span class="fas fa-edit"></span>
+                    </button>
+
+                    <span class="category-<%= tasks[i].category %>">
+                        <%= tasks[i].category %>
+                    </span>
+
+                    <span class="dueDate">
+                        <i class="far fa-calendar-alt"></i>
+                        <%= month[tasks[i].dueDate.getMonth()] %> 
+                        <%= tasks[i].dueDate.getDate() %>,
+                        <%= tasks[i].dueDate.getFullYear() %>
+                    </span>
+
+                </li>
+                
+                <% } %>
+            </ul>
+
+        </form>
+    </div>
+
+</body>
+</html>

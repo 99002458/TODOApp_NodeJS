@@ -1,0 +1,248 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* background image  */
+#background {
+  background-image: url("https://thumbs.dreamstime.com/b/writer-s-table-flat-lay-composition-student-desk-w-supplies-blank-notebook-pages-coffee-cup-clipboard-pencil-planner-to-do-list-109353828.jpg");
+  /* filter: blur(1px); */
+  opacity: 0.6;
+  height: 100%;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  z-index: -1;
+  border: 3px solid rgb(209, 13, 13);
+}
+
+/* app heading */
+h1 {
+  font-size: 40px;
+  color: rgb(27, 10, 9);
+  font-family: "times new roman";
+  width: 100%;
+  text-align: center;
+  padding: 15px;
+}
+
+h2 {
+  font-size: 20px;
+  color: aliceblue;
+  font-family: "times new roman";
+  width: 100%;
+  text-align: center;
+  color: wheat;
+}
+
+/* input tags for form  */
+input {
+  font-size: 1rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  margin: 7px 20px;
+}
+
+label {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-family: sans-serif;
+}
+
+/* styling all box */
+.box {
+  /* border-radius: 15px; */
+  width: 70%;
+  overflow: hidden;
+  max-height: 90vh;
+  /* border: black 2px solid; */
+  margin: auto;
+  background-color: white;
+}
+
+/* rows in box  */
+.box .row {
+  border-bottom: 1px solid rgb(216, 211, 211);
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* width for rows 1 */
+.col1 {
+  width: 100%;
+}
+
+/* width for rows 2 */
+.col2 {
+  width: 50%;
+}
+
+/* select box  */
+select {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: larger;
+  padding: 5px 10px;
+}
+
+/* options in select  */
+option {
+  font-size: small;
+  background-color: rgb(169, 252, 255);
+}
+
+/* all buttons */
+button {
+  display: inline-block;
+  text-align: center;
+  /* background: linear-gradient(0deg, rgb(0, 170, 248) 0%, rgba(2, 214, 251, 0.548) 100%); */
+  border: white solid 1px;
+  margin: 10px 30px;
+  font-size: larger;
+  /* border-radius: 10px; */
+  color: white;
+}
+
+.edit{
+  color: green;
+}
+
+.black {
+  background-color: black;
+}
+
+.red {
+  background-color: red;
+}
+
+.blue{
+  background-color: blue;
+}
+
+/* hovering on buttons */
+button.black:hover {
+  background: black;
+  border: white solid 1px;
+  box-shadow: grey 2px 4px 4px 4px;
+}
+
+button.red:hover {
+  background: rgb(243, 5, 5);
+  border: white solid 1px;
+  box-shadow: grey 2px 4px 4px 4px;
+}
+
+/* form  */
+form {
+  margin: 10px 0px;
+}
+
+/* class with starting as col  */
+[class^="col"] {
+  padding: 1rem 30px;
+}
+
+/* grayback class */
+.grayBack:hover {
+  background-color: rgb(212, 241, 255);
+}
+
+/* List of all task */
+ul {
+  list-style: none;
+  max-height: 45vh;
+  overflow: auto;
+  padding: 0px 20px;
+}
+
+/* list item styles */
+li {
+  padding: 5px 10px;
+  font-size: 15px;
+  position: relative;
+  border-bottom: 1px solid lightgrey;
+  transition: all 1s;
+}
+
+/* description text styles */
+li .description {
+  font-size: 25px;
+  margin-left: 50px;
+}
+
+/* date styles */
+li .dueDate {
+  display: block;
+  margin: 10px 100px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+/* classes starts with categories */
+[class^="category"] {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  padding: 0.6rem;
+  color: white;
+  position: absolute;
+  right: 2rem;
+  top: 1.15rem;
+  width: 140px;
+  border: rgb(179, 172, 172) solid 1px;
+  text-align: center;
+}
+
+/* all labels inside todo class */
+.todo label {
+  margin: 10px;
+}
+
+/* Hide the default checkbox */
+label input {
+  display: none;
+}
+
+/* Style the artificial checkbox */
+label span {
+  height: 23px;
+  width: 18px;
+  border: 1px solid rgb(0, 0, 0);
+  display: inline-block;
+  position: relative;
+  border-radius: 2px;
+}
+
+/* Style its checked state...with a ticked icon */
+[type="checkbox"]:checked + span:before {
+  content: "\2714";
+  position: relative;
+  top: -5px;
+  left: 0;
+  background-color: rgb(59, 192, 59);
+}
+
+/* for coloring different category */
+.category-personal {
+  background-color: rgb(231, 162, 13);
+}
+
+.category-work {
+  background-color: hsla(240, 87%, 42%, 0.534);
+}
+
+.category-school {
+  background-color: rgb(230, 66, 66);
+}
+
+.category-cleaning {
+  background-color: rgb(31, 49, 5);
+}
+
+.category-other {
+  background-color: rgb(196, 21, 123);
+}
